@@ -10,9 +10,42 @@
 
 适用平台：Vercel、Netlify、GitHub Pages、公司内部前端流水线等。
 
-## Git 平台构建配置
+## GitHub Pages 自动部署
 
-在部署平台中配置：
+当前仓库已增加 GitHub Actions 配置：
+
+```text
+.github/workflows/deploy.yml
+```
+
+每次推送到 `main` 分支后，GitHub 会自动执行：
+
+```text
+npm ci → npm run build → 发布 dist 到 GitHub Pages
+```
+
+Vite 的线上访问路径已配置为：
+
+```text
+/work_prototype_CloyunchuLearning/
+```
+
+首次使用时，需要在 GitHub 仓库页面开启 Pages：
+
+1. 打开仓库 `Settings`；
+2. 进入 `Pages`；
+3. `Source` 选择 `GitHub Actions`；
+4. 保存后等待 Actions 执行完成。
+
+页面地址通常为：
+
+```text
+https://kexinstrive.github.io/work_prototype_CloyunchuLearning/
+```
+
+## 其他 Git 平台构建配置
+
+如果使用 Vercel、Netlify 或公司内部流水线，可配置：
 
 | 配置项 | 值 |
 |---|---|
@@ -61,6 +94,8 @@ npm run watch:sync
 - `UI2Code/**/*`
 - `index.html`
 - `package.json`
+- `vite.config.mjs`
+- `.github/workflows/**/*`
 
 忽略：
 
