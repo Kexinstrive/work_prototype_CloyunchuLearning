@@ -1,0 +1,19 @@
+{
+  "scripts": {
+    "dev": "vite --host 0.0.0.0 --port 5175",
+    "build": "vite build",
+    "preview": "vite preview --host 0.0.0.0 --port 4173",
+    "sync": "npm run build && git add . && (git diff --cached --quiet && echo \"No changes to sync\" || git commit -m \"chore: sync prototype\") && git push",
+    "watch:sync": "chokidar \"UI2Code/**/*\" \"index.html\" \"package.json\" -i \"dist/**\" -i \"node_modules/**\" -c \"npm run sync\" --debounce 1500"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "latest",
+    "vite": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "lucide-react": "latest"
+  },
+  "devDependencies": {
+    "chokidar-cli": "latest"
+  }
+}
